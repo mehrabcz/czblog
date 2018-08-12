@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}
+  {{ block.super }} | contact-me
+{% endblock title %}
+{% block content %}
+<section class="main-content">
+    <div class="padding">
+        <div class="container">
+            <div class="contact">
+                <div class="contact-top">
+                    <div class="padding text-center">
+                        <img src="/media/images/c.png" alt="Image">
+                    </div><!-- /.padding -->
+                </div><!-- /.contact-top -->
+
+                <div class="contact-details">
+                    <div class="details-top text-center">
+                        <h2 class="section-title">Contact me</h2><!-- /.section-title -->
+                    </div><!-- /.details-top -->
+                    <p>
+                         If you would like to contact with me, use the form below.
+                    </p>
+                    <p>
+                        Maybe with a little delay, but i'll surely answer : )
+                    </p>
+                    
+                    <form action="" method="post" class="wpcf7-form">
+                        {% csrf_token %}
+                        <span class="wpcf7-form-control-wrap your-name">
+                            <input type="text" name="name" id="name" class="wpcf7-form-control" placeholder="Name" required>
+                        </span>
+                        <span class="wpcf7-form-control-wrap email">
+                            <input type="email" name="email" id="email" class="wpcf7-form-control" placeholder="Email" required>
+                        </span>
+                        <span class="wpcf7-form-control-wrap url">
+                            <input type="url" name="url" id="url" class="wpcf7-form-control" placeholder="Website*">
+                        </span>
+                        <span class="wpcf7-form-control-wrap message">
+                            <textarea name="message" id="message" class="wpcf7-form-control" placeholder="Your Message" required></textarea>
+                        </span>
+                        <span class="wpcf7-form-control-wrap submit">
+                            <input type="submit" name="submit" id="submit" class="wpcf7-form-control" value="Submit">
+                        </span>
+                    </form>
+                </div><!-- /.contact-details -->
+            </div><!-- /.contact -->
+        </div><!-- /.container -->
+    </div><!-- /.padding -->
+</section><!-- /.main-content -->
+{% endblock content %}
