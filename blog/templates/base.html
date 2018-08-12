@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}
+        Mehrab
+    {% endblock title %}</title>
+    <meta name="description" content="Mehrab babapour - blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Import Icon Packs -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/elegent-icons.css' %}">
+
+    <!-- Import External Scrpit CSS Files -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+
+    <!-- Import Template CSS Files -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script> -->
+
+    <script src="{% static 'js/modernizr-2.8.3.min.js' %}"></script>
+
+</head>
+
+
+<body>
+
+    <div class="overlay-wrapper">
+
+        <header class="masthead">
+            <div class="header-top">
+                <div class="container">
+                    <div class="side-menu-trigger"><span class="trigger-icon"><i class="icon_menu"></i></span></div><!-- /.side-menu-trigger -->
+                    <a class="navbar-brand hidden-xs" href="./"><h2>mehrab</h2></a>
+                    <!--<a class="navbar-brand hidden-xs" href="./"><h2>mehrab</h2></a>-->
+                    <div class="menu-search">
+                        <div class="form-trigger"><i class="icon_search"></i></div>
+                        <form action="#">
+                            <input type="text" name="search" id="menu-search" placeholder="Search here..">
+                        </form>
+                    </div>
+
+                    <nav class="sidebar-menu">
+                        <a class="navbar-brand" href="./"><h3>mehrab</h3></a>
+                        <span class="menu-close"><i class="icon_close"></i></span>
+
+                        <ul class="nav navbar-nav">
+                            <li class="menu-item active">
+                                <a href="#">Home</a>
+                            </li>
+
+                            <li class="menu-item menu-item-has-children">
+                                <a href="#">Features</a>
+                                <ul class="sub-menu children">
+                                    <li><a href="standard.html">Post Standard</a></li>
+                                    <li><a href="sidebar.html">Post Left Sidebar</a></li>
+                                    <li><a href="image.html">Post Header Image</a></li>
+                                    <li><a href="side-image.html">Post Side Image</a></li>
+                                    <li><a href="gallery.html">Post Gallery</a></li>
+                                    <li><a href="video.html">Post Video</a></li>
+                                    <li><a href="audio.html">Post Audio</a></li>
+                                    <li><a href="quote.html">Post Quote</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item"><a href="categories.html">Categories</a></li>
+                            <li class="menu-item"><a href="about.html">About</a></li>
+                            <li class="menu-item"><a href="contact.html">Contact</a></li>
+                        </ul><!-- /.navbar-nav -->
+
+                        <div class="menu-social">
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-youtube"></i></a>
+                        </div><!-- /.menu-social -->
+                    </nav><!-- /.sidebar-menu -->
+                </div><!-- /.container -->
+            </div><!-- /.header-top -->
+            <div class="header-bottom">
+                <div class="container">
+                    <nav class="navbar navbar-default">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <a class="navbar-brand visible-xs" href="./"><img src="/media/images/logo3.png" alt="Site Logo"></a>
+                        </div>
+
+                        <div id="main-menu" class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="menu-item active">
+                                    <a href="/">Home</a>
+                                </li>
+                                <li class="menu-item"><a href="{% url 'blog:cats' %}">Categories</a></li>
+                                <li class="menu-item"><a href="{% url 'blog:about' %}">About</a></li>
+                                <li class="menu-item"><a href="{% url 'blog:contact' %}">Contact</a></li>
+                            </ul><!-- /.navbar-nav -->
+                        </div><!-- /.navbar-collapse -->
+                    </nav>
+                </div><!-- /.container -->
+            </div><!-- /.header-bottom -->
+        </header><!-- /.masthead -->
+        {% block content %}
+          
+        {% endblock content %}
+        
+        <footer class="site-footer colophon">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <a href="./" class="footer-logo pull-left"><h5 style="color:#fff">mehrab</h5></a><!-- /.footer-logo -->
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="copyright text-center">
+                            © <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Design with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://github.com/mehrabcz/" target="_blank">mehrab</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </div><!-- /.copyright -->
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="footer-social pull-right">
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                        </div><!-- /.footer-social -->
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </footer><!-- /.site-footer -->
+
+    </div><!-- /.overlay -->
+
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
