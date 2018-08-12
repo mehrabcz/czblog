@@ -1,24 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    {% for post in posts %}
-      <h1>{{post.title}}</h1>
-      <p>owner : {{post.owner}}</p>
-      <hr>
-      <img src="/media/{{post.picture}}" alt="{{post.title}}">
-      <p>{{post.content}}</p>
-      <hr>
-      {% for comment in comments %}
-        <p>owner : {{comment.owner}}</p>
-        <p>{{comment.text}}</p>
-        <hr>
-      {% endfor %}
-    {% endfor %}
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}
+  {{ block.super }} | blog
+{% endblock title %}
+{% block content %}
+  <!--<section class="banner-slider banner-slider-02 owl-carousel owl-theme">
+            <div class="item">
+                <article class="post type-post">
+                    <div class="entry-thumbnail">
+                        <img src="/media/images/slider/02/s1.jpg" alt="Slider Image">
+                    </div>
+                    <div class="entry-content">
+                        <div class="overlay">
+                            <div class="inner-content">
+                                <span class="category"><a href="categories.html">Lifestyle</a></span>
+                                <h2 class="entry-title"><a href="standard.html">Natural summer</a></h2>
+                                <a href="standard.html" class="btn read-more">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="item">
+                <article class="post type-post">
+                    <div class="entry-thumbnail">
+                        <img src="/media/images/slider/02/s2.jpg" alt="Slider Image">
+                    </div>
+                    <div class="entry-content">
+                        <div class="overlay">
+                            <div class="inner-content">
+                                <span class="category"><a href="categories.html">Lifestyle</a></span>
+                                <h2 class="entry-title"><a href="standard.html">Cruise to Alaska</a></h2>
+                                <a href="standard.html" class="btn read-more">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="item">
+                <article class="post type-post">
+                    <div class="entry-thumbnail">
+                        <img src="/media/images/slider/02/s3.jpg" alt="Slider Image">
+                    </div>
+                    <div class="entry-content">
+                        <div class="overlay">
+                            <div class="inner-content">
+                                <span class="category"><a href="categories.html">Lifestyle</a></span>
+                                <h2 class="entry-title"><a href="standard.html">Natural summer</a></h2>
+                                <a href="standard.html" class="btn read-more">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>-->
+        <section class="main-content">
+            <div class="padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="list-posts">
+                                {% for post in posts %}
+                                <article class="post type-post media">
+                                    <div class="entry-thumbnail media-left pull-left"><img src="/media/{{post.picture}}" alt="Thumbnail Image"></div><!-- /.entry-thumbnail -->
+                                    <div class="entry-content media-body">
+                                        <span class="category"><a href="{% url 'blog:catposts' post.category_id %}">{{post.category.name}}</a></span><!-- /.category -->
+                                        <h2 class="entry-title"><a href="{% url 'blog:post' post.id %}">{{post.title}}</a></h2><!-- /.entry-title -->
+                                        <span class="time"><time datetime="2017-12-05">{{post.update_datetime}}</time></span><!-- /.time -->
+                                        <p>
+                                            {{post.content | truncatechars:165}}
+                                        </p>
+                                        <a href="{% url 'blog:post' post.id %}" class="btn">Read more</a><!-- /.btn -->
+                                    </div><!-- /.entry-content -->
+                                </article><!-- /.post -->
+                                {% endfor %}
+                            </div><!-- /.list-posts -->
+                            {% for post in posts %}
+                              {{post.full_name|upper}}<br>
+                            {% endfor %}
+                            {% if posts.number > 6 %}
+                            <nav class="pagination pagination-02">
+                                <ul>
+                                    {% if posts.has_previous %}
+                                    <li><a href="?page={{posts.previous_page_number}}" aria-label="Previous">Previous</a></li>  
+                                    {% endif %}
+                                    {% for num in posts.paginator.page_range %}
+                                      
+                                        {% if posts.number == num %}
+                                            <li class="active"><a href="#">{{num}}</a></li>
+                                        {% elif num > posts.number|add:'-3' and num < posts.number|add:'3' %}
+                                            <li><a href="?page={{ num }}">{{num}}</a></li>
+                                        {% endif %}
+
+                                    {% endfor %}
+                                    {% if posts.has_next %}
+                                        <li><a href="?page={{ posts.next_page_number }}" aria-label="Next">Next</a></li>                                          
+                                    {% endif %}
+                                </ul>
+                            </nav><!-- /.pagination -->  
+                            {% endif %}
+                            
+                        </div>
+                        {% include "sidebar.html" %} 
+                    </div><!-- /.row -->
+                </div><!-- /.container -->
+            </div><!-- /.padding -->
+        </section><!-- /.main-content -->
+
+{% endblock content %}
