@@ -54,12 +54,12 @@
                         <span class="menu-close"><i class="icon_close"></i></span>
 
                         <ul class="nav navbar-nav">
-                            <li class="menu-item active">
+                            <li class="menu-item {% if request.resolver_match.url_name == 'index' %} active {% endif %}">
                                 <a href="/">Home</a>
                             </li>
-                            <li class="menu-item"><a href="{% url 'blog:cats' %}">Categories</a></li>
-                            <li class="menu-item"><a href="{% url 'blog:about' %}">About</a></li>
-                            <li class="menu-item"><a href="{% url 'blog:contact' %}">Contact</a></li>
+                            <li class="menu-item {% if request.resolver_match.url_name == 'cats' %} active {% endif %}"><a href="{% url 'blog:cats' %}">Categories</a></li>
+                            <li class="menu-item {% if request.resolver_match.url_name == 'about' %} active {% endif %}"><a href="{% url 'blog:about' %}">About</a></li>
+                            <li class="menu-item {% if request.resolver_match.url_name == 'contact' %} active {% endif %}"><a href="{% url 'blog:contact' %}">Contact</a></li>
                         </ul><!-- /.navbar-nav -->
 
                         <div class="menu-social">
@@ -84,12 +84,12 @@
 
                         <div id="main-menu" class="collapse navbar-collapse">
                             <ul class="nav navbar-nav">
-                                <li class="menu-item active">
+                                <li class="menu-item {% if request.resolver_match.url_name == 'index' %} active {% endif %}">
                                     <a href="/">Home</a>
                                 </li>
-                                <li class="menu-item"><a href="{% url 'blog:cats' %}">Categories</a></li>
-                                <li class="menu-item"><a href="{% url 'blog:about' %}">About</a></li>
-                                <li class="menu-item"><a href="{% url 'blog:contact' %}">Contact</a></li>
+                                <li class="menu-item {% if request.resolver_match.url_name == 'cats' %} active {% endif %}"><a href="{% url 'blog:cats' %}">Categories</a></li>
+                                <li class="menu-item {% if request.resolver_match.url_name == 'about' %} active {% endif %}"><a href="{% url 'blog:about' %}">About</a></li>
+                                <li class="menu-item {% if request.resolver_match.url_name == 'contact' %} active {% endif %}"><a href="{% url 'blog:contact' %}">Contact</a></li>
                             </ul><!-- /.navbar-nav -->
                         </div><!-- /.navbar-collapse -->
                     </nav>
