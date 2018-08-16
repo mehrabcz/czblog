@@ -18,12 +18,12 @@
                             <div class="entry-thumbnail"><img src="/media/{{category.picture}}" alt="Thumbnail Image"></div><!-- /.entry-thumbnail -->
                             <div class="entry-content">
                             <span class="category"><a href="{% url 'blog:catposts' category.id %}">{{category.name}}</a></span><!-- /.category -->
-                                <h2 class="entry-title"><a href="standard.html">{{category.name}}</a></h2><!-- /.entry-title -->
+                                <h2 class="entry-title"><a href="{% url 'blog:catposts' category.id %}">{{category.name}}</a></h2><!-- /.entry-title -->
                                 <p>
                                     {{category.description}}
                                 </p>
 
-                                <a href="standard.html" class="btn">Read more</a><!-- /.btn -->
+                                <a href="{% url 'blog:catposts' category.id %}" class="btn">Read more</a><!-- /.btn -->
                             </div><!-- /.entry-content -->
                         </article><!-- /.post -->
                     </div>
