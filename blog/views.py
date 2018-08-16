@@ -6,6 +6,12 @@ from.models import Post,Comment,ContactMe,Category
 
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 # Create your views here.
+def sidebar():
+    posts = Post.objects.all().order_by('-publish_datetime')
+    recetn_posts = posts[:5]
+    return recetn_posts
+
+
 def index(request):
     posts = Post.objects.all().order_by('-publish_datetime')
     pginator = Paginator(posts,6)
@@ -18,7 +24,7 @@ def index(request):
         posts = pginator.page(pginator.num_pages)
     context = {
         'posts':posts,
-        'recent_post':posts[:5]
+        'recent_post':sidebar(),
     }
     return render(request,'index.html',context)
 
@@ -45,14 +51,14 @@ def post(request,id):
         this_email = request.POST['email']
         this_url = request.POST['url']
         this_message = request.POST['message']
-
         Comment.objects.create(name=this_name,email=this_email,website=this_url,text=this_message,for_post=this_post)
         return HttpResponseRedirect(redirect_to='/post/{}'.format(id))
     comments = Comment.objects.filter(for_post=this_post)
     context = {
         'post':this_post,
         'comments':comments,
-        'comments_numb':int(len(comments))
+        'comments_numb':int(len(comments)),
+        'recent_post':sidebar()
     }
     return render(request,'post.html',context)
 
