@@ -19,7 +19,7 @@
                                     </div><!-- /.top-content --> 
                                     <div class="entry-thumbnail"><img src="/media/{{post.picture}}" alt="Thumbnail Image"></div><!-- /.entry-thumbnail -->
                                     <div class="entry-content">
-                                        <p>{{post.content.as_p}}</p>
+                                        <p>{{post.content}}</p>
                                         <div class="post-meta">
                                             <span class="comments pull-left"><i class="icon_comment_alt"></i> <a href="#">{{comments_numb}} Comments</a></span><!-- /.comments -->
                                             <span class="post-social pull-right">
@@ -34,7 +34,7 @@
                             </div><!-- /.type-standard -->
 
                             <div class="author-bio media">
-                                <div class="author-avatar media-left pull-left"><img class="img-circle" src="/media/images/single/au.jpg" alt="Avatar"></div><!-- /.author-avatar -->
+                                <div class="author-avatar media-left pull-left"><img class="img-circle" src="/media/images/mehrab.jpeg" alt="Avatar"></div><!-- /.author-avatar -->
                                 <div class="author-details media-body">
                                     <h3 class="name"><a href="#">{{post.owner}}</a></h3>
                                     <p>
@@ -52,19 +52,6 @@
                             <div class="comments text-center">
                                 <h3 class="comment-title">{{comments_numb}} comments</h3><!-- /.comment-title -->
                                 <ul class="comment-list">
-                                    <li class="comment parent media">
-                                        <div class="author-avatar media-left pull-left">
-                                            <img class="img-circle" src="images/single/c1.jpg" alt="Avatar">
-                                        </div><!-- /.author-avatar -->
-                                        <div class="comment-details media-body">
-                                            <h3 class="name"><a href="#">Keith West</a></h3><!-- /.name -->
-                                            <p>
-                                                Donec sed elementum mi. Duis mattis dolor ante, eleifend dapibus ipsum pellentesque venenatis. Nullam elementum ligula et rhoncus inter dum. In malesuada aliquam ligula in dapibus.
-                                            </p>
-                                            <a href="#" class="btn reply">Reply</a>
-                                            <time datetime="PT04H0M">4 hours ago</time>
-                                        </div><!-- /.comment-details -->
-                                    </li><!-- /.comment -->
                                     {% for item in comments %}
                                     <li class="comment parent media">
                                             <div class="author-avatar media-left pull-left">
